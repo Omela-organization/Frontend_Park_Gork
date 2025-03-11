@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charSet="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./style/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <title>Регистрация</title>
+</head>
+<body class="body">
+
+    <div class="header">
+        <button onclick="window.location.href='./login.html'" class="glow-on-hover1">Вход</button>
+    </div>
+<div class="form-reg">
+    <div class="row">
+<!--        <div th:if="${param.success}">-->
+<!--            <div class="alert alert-info">Вы успешно зарегистрированы в нашем замечательном приложении!</div>-->
+<!--        </div>-->
+
+<!--        <div th:if="${param.email_invalid}">-->
+<!--            <div class="alert alert-danger">Электронная почта уже зарегистрирована!</div>-->
+<!--        </div>-->
+
+        <form id="registrationForm" action="/api/registration" method="POST">
+            <h3 class="tekstik1">Регистрация</h3>
+                <div class="form-group">
+                <input type="text" class="form-control_reg" id="firstName" name="firstName" placeholder="Имя" required>
+                <input type="text" class="form-control_reg" id="lastName" name="lastName" placeholder="Фамилия" required>
+                <input type="email" class="form-control_reg" id="email" name="email" placeholder="Электронная почта" required>
+                <input type="password" class="form-control_reg" id="password" name="password" placeholder="Пароль" required>
+                </div>
+                    <button type="submit" class="glow-on-hover2">Зарегистрироваться</button>
+            </form>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,150 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap");
+
+html, body {
+  font-family: 'Montserrat', sans-serif;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  background: linear-gradient(180deg, #5dc4c1, #90fcae);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  overflow-x: hidden;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.controls {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.controls button {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #76a878;
+  color: rgb(22, 19, 19);
+  cursor: pointer;
+}
+
+.controls button:hover {
+  background-color: #388E3C;
+}
+
+#example-table {
+  font-family: 'Montserrat', sans-serif;
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 90%;
+  margin: 20px auto;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.tabulator-header {
+  background-color:  #3bb33f;
+  color: #ffffff;
+  text-align: center;
+  padding: 0px;
+  font-weight: bold;
+  border-bottom: 2px solid #388E3C;
+}
+
+.tabulator-row {
+  background-color: #E8F5E9 ;
+  transition: background-color 0.3s ease;
+}
+
+.tabulator-row:nth-child(even) {
+  background-color: #F1F8E9 ;
+}
+
+.tabulator-cell {
+  padding: 16px;
+  border-right: 1px solid #44ccc1;
+}
+
+.tabulator-cell:last-child {
+  border-right: none;
+}
+
+.tabulator-row:hover {
+  background-color: #F1F8E9 ;
+}
+
+.tabulator-selected {
+  background-color: #0a4b0c;
+}
+
+.tabulator-footer {
+  background-color: #4CAF50;
+  color: rgb(146, 219, 139);
+  text-align: right;
+  padding: 0px;
+  font-size: 14px;
+  border-top: 10px solid #ddd;
+}
+
+.filter-popup {
+  display: none;
+  position: absolute;
+  top: 150px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgb(154, 176, 153);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(139, 12, 12, 0.1);
+  z-index: 1000;
+}
+
+.filter-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.filter-content label {
+  margin-right: 10px;
+}
+
+.filter-content input {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.filter-content button {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #76a878;
+  color: rgb(22, 19, 19);
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.filter-content button:hover {
+  background-color: #388E3C;
+}
+
+/* Ensure columns are evenly spaced */
+.tabulator .tabulator-header .tabulator-col {
+  width: 16.66%; /* 100% / 6 columns */
+}
+
+.tabulator .tabulator-tableholder .tabulator-table .tabulator-row .tabulator-cell {
+  width: 16.66%; /* 100% / 6 columns */
+}

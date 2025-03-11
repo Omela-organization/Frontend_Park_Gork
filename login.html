@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+  <title>Авторизация</title>
+</head>
+<body class="body">
+<div>
+    <button onclick="window.location.href='./register.html'" class="glow-on-hover1">Регистрация</button>
+</div>
+<div class="form2">
+    <div class="row">
+        <form id="loginForm">
+            <h3 class="tekstik1">Вход на сайт</h3>
+            <div class="login-form-group">
+                <input type="text" class="form-control-login" id="username" name="username" placeholder="Имя пользователя" autofocus="autofocus" required minlength="3" maxlength="50">
+                <input type="email" class="form-control-login" id="email" name="email" placeholder="Адрес электронной почты" required>
+                <input type="password" id="password" name="password" class="form-control-login" placeholder="Введите пароль" required minlength="8" maxlength="100">
+            </div>
+            <button class="glow-on-hover3" type="submit">Войти</button>
+        </form>
+    </div>
+</div>
+<script>
+  document.getElementById('loginForm').addEventListener('submit', async function(event) {
+    event.preventDefault();
+    const username = document.getElementById('username').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    const response = await fetch('http://213.171.28.81:7000/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ username, email, password }),
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      alert('Авторизация успешна! Ваш токен: ' + data.token);
+      // Здесь вы можете сохранить токен в localStorage или cookie для последующего использования
+      localStorage.setItem('token', data.token);
+    } else {
+      const errorData = await response.json();
+      alert('Ошибка авторизации: ' + errorData.message);
+    }
+  });
+</script>
+</body>
+</html>

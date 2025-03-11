@@ -1,0 +1,162 @@
+[
+  {
+    "status": "Просмотрено",
+    "date": "2024-11-04",
+    "violationType": "Выброс мусора",
+    "coordinates": "37.60141, 55.72844",
+    "photo": "photo1.jpg",
+    "checkStatus": "Проверено"
+  },
+  {
+    "status": "Не просмотрено",
+    "date": "2024-11-02",
+    "violationType": "Оставленные вещи",
+    "coordinates": "37.60150, 55.72850",
+    "photo": "photo2.jpg",
+    "checkStatus": "Не проверено"
+  },
+  {
+    "status": "Просмотрено",
+    "date": "2024-11-03",
+    "violationType": "Повреждение деревьев",
+    "coordinates": "37.60155, 55.72855",
+    "photo": "photo3.jpg",
+    "checkStatus": "Проверено"
+  },
+  {
+    "status": "Не просмотрено",
+    "date": "2024-11-01",
+    "violationType": "Разведение костров",
+    "coordinates": "37.60160, 55.72860",
+    "photo": "photo4.jpg",
+    "checkStatus": "Не проверено"
+  },
+  {
+    "status": "Просмотрено",
+    "date": "2024-10-30",
+    "violationType": "Выгул собак без поводка",
+    "coordinates": "37.60165, 55.72865",
+    "photo": "photo5.jpg",
+    "checkStatus": "Проверено"
+  },
+  {
+    "status": "Не просмотрено",
+    "date": "2024-10-29",
+    "violationType": "Парковка в неположенном месте",
+    "coordinates": "37.60170, 55.72870",
+    "photo": "photo6.jpg",
+    "checkStatus": "Не проверено"
+  },
+  {
+    "status": "Просмотрено",
+    "date": "2024-10-28",
+    "violationType": "Вандализм",
+    "coordinates": "37.60175, 55.72875",
+    "photo": "photo7.jpg",
+    "checkStatus": "Проверено"
+  },
+  {
+    "status": "Не просмотрено",
+    "date": "2024-10-27",
+    "violationType": "Шум после 22:00",
+    "coordinates": "37.60180, 55.72880",
+    "photo": "photo8.jpg",
+    "checkStatus": "Не проверено"
+  },
+  {
+    "status": "Просмотрено",
+    "date": "2024-10-26",
+    "violationType": "Разбитые окна",
+    "coordinates": "37.60185, 55.72885",
+    "photo": "photo9.jpg",
+    "checkStatus": "Проверено"
+  },
+  {
+    "status": "Не просмотрено",
+    "date": "2024-10-25",
+    "violationType": "Граффити на стенах",
+    "coordinates": "37.60190, 55.72890",
+    "photo": "photo10.jpg",
+    "checkStatus": "Не проверено"
+  },
+  {
+    "status": "Просмотрено",
+    "date": "2024-10-24",
+    "violationType": "Повреждение лавочек",
+    "coordinates": "37.60195, 55.72895",
+    "photo": "photo11.jpg",
+    "checkStatus": "Проверено"
+  },
+  {
+    "status": "Не просмотрено",
+    "date": "2024-10-23",
+    "violationType": "Повреждение детских площадок",
+    "coordinates": "37.60200, 55.72900",
+    "photo": "photo12.jpg",
+    "checkStatus": "Не проверено"
+  },
+  {
+    "status": "Просмотрено",
+    "date": "2024-10-22",
+    "violationType": "Повреждение спортивных площадок",
+    "coordinates": "37.60205, 55.72905",
+    "photo": "photo13.jpg",
+    "checkStatus": "Проверено"
+  },
+  {
+    "status": "Не просмотрено",
+    "date": "2024-10-21",
+    "violationType": "Повреждение освещения",
+    "coordinates": "37.60210, 55.72910",
+    "photo": "photo14.jpg",
+    "checkStatus": "Не проверено"
+  },
+  {
+    "status": "Просмотрено",
+    "date": "2024-10-20",
+    "violationType": "Повреждение дорожек",
+    "coordinates": "37.60215, 55.72915",
+    "photo": "photo15.jpg",
+    "checkStatus": "Проверено"
+  },
+  {
+    "status": "Не просмотрено",
+    "date": "2024-10-19",
+    "violationType": "Повреждение урн",
+    "coordinates": "37.60220, 55.72920",
+    "photo": "photo16.jpg",
+    "checkStatus": "Не проверено"
+  },
+  {
+    "status": "Просмотрено",
+    "date": "2024-10-18",
+    "violationType": "Повреждение скамеек",
+    "coordinates": "37.60225, 55.72925",
+    "photo": "photo17.jpg",
+    "checkStatus": "Проверено"
+  },
+  {
+    "status": "Не просмотрено",
+    "date": "2024-10-17",
+    "violationType": "Повреждение клумб",
+    "coordinates": "37.60230, 55.72930",
+    "photo": "photo18.jpg",
+    "checkStatus": "Не проверено"
+  },
+  {
+    "status": "Просмотрено",
+    "date": "2024-10-16",
+    "violationType": "Повреждение газонов",
+    "coordinates": "37.60235, 55.72935",
+    "photo": "photo19.jpg",
+    "checkStatus": "Проверено"
+  },
+  {
+    "status": "Не просмотрено",
+    "date": "2024-10-15",
+    "violationType": "Повреждение ограждений",
+    "coordinates": "37.60240, 55.72940",
+    "photo": "photo20.jpg",
+    "checkStatus": "Не проверено"
+  }
+]

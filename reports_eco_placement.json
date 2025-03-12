@@ -1,0 +1,25 @@
+[
+  {
+    "status": "Просмотрено",
+    "date": "2024-11-04",
+    "violationType": "Селфи с природой",
+    "coordinates": "37.60141, 55.72844",
+    "photo": "photo1.jpg",
+    "checkStatus": "Проверено"
+  },
+  {
+    "status": "Не просмотрено",
+    "date": "2024-11-02",
+    "violationType": "Новый скворечник",
+    "coordinates": "37.60150, 55.72850",
+    "photo": "photo2.jpg",
+    "checkStatus": "Не проверено"
+  },
+  {
+    "status": "Просмотрено",
+    "date": "2024-11-03",
+    "violationType": "Посадка дерева",
+    "coordinates": "37.60155, 55.72855",
+    "photo": "photo3.jpg",
+    "checkStatus": "Проверено"
+  }]

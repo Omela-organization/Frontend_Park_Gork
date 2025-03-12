@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Административная панель</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="icon" href="./marker-icon-2x.png" type="image/x-icon" sizes="640x640" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body class="body">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand active" href="#">Админимтративная проблема</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="./map_table.html" target="_blank">Анализ экопроблем</a></li>
+                <li><a href="./map_table_eco_placement.html" target="_blank">Анализ экообстановки</a></li>
+                <li><a href="./achivments_proba.html" target="_blank">Пользователи</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <h1 class="admin_h1_panel">Административная панель</h1>
+
+    <h2 class="admin_h2_panel">Список пользователей</h2>
+    <div class="table-container">
+        <table class="table_admin" id="usersTable">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Имя</th>
+                <th>Фамилия</th>
+                <th>Email</th>
+                <th>Роль</th>
+                <th>Изменение роли</th>
+                <th>Действия</th>
+                <th>Удаление</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <!-- <button onclick="window.location.href='/'" class="admin-button">Выход</button> -->
+    <script src="./script/admin.js"></script>
+</body>
+</html>

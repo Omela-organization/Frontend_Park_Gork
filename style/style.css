@@ -69,8 +69,10 @@ td {
 .body {
   background: linear-gradient(180deg, #5dc4c1, #90fcae);
   height: auto; /* Высота экрана */
+  background-attachment: fixed;
+  background-repeat: no-repeat;
   margin: 0;
-  overflow-y: auto
+  overflow-y: auto;
 }
 
 .glow-on-hover1 {
@@ -274,7 +276,6 @@ td {
 .glow-on-hover3:before {
   content: '';
   background: linear-gradient(180deg, #183d3b 0%, rgb(21, 49, 48) 100%);
-);
 
   position: absolute;
   top: -2px;
@@ -355,7 +356,6 @@ td {
 .glow-on-hover2:before {
   content: '';
   background: linear-gradient(180deg, #183d3b 0%, rgb(21, 49, 48) 100%);
-);
 
   position: absolute;
   top: -2px;
@@ -407,3 +407,146 @@ td {
   }
 }
 
+/*Админка*/
+
+
+.admin_h1_panel, .admin_h2_panel {
+  color: #000000;
+  text-align: center; /* Центрирование текста */
+  margin-top: 20px; /* Отступ сверху */
+  margin-bottom: 20px;
+}
+
+.navbar-default {
+  background-color:  #376c6b !important;
+  border-color:  #0e4443 !important;
+}
+
+.navbar-default .navbar-brand,
+.navbar-default .navbar-nav > li > a {
+  color: #fff !important; /* Цвет текста ссылок */
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-nav > li > a:hover {
+  color:  #042c2b !important; /* Цвет текста ссылок при наведении */
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color:  #0e4443 !important; /* Цвет текста активной ссылки */
+  background-color: #555 !important;
+}
+
+.container-fluid{
+  display: flex;
+  justify-content: center;
+}
+
+.table-container {
+  width: 80%;
+  /*margin-left: 25%;*/
+  margin: 30px auto; /* Отступ сверху */
+  /*padding: 10px; !* Внутренний отступ *!*/
+  background-color: rgba(253, 253, 253, 0); /* Фоновый цвет контейнера */
+  border-radius: 10px; /* Закругление углов */
+  box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2); /* Тень контейнера */
+  overflow-x: auto; /* Прокрутка по горизонтали при необходимости */
+  border: 1px solid #000000;
+}
+
+.table_admin {
+  width: 100%; /* Таблица занимает всю ширину контейнера */
+  border-collapse: separate; /* Разделяет границы ячеек, если нужно */
+  border-spacing: 0; /* Убирает промежуток между ячейками */
+  border-radius: 10px; /* Закругление углов */
+
+}
+
+.table_admin td {
+  padding: 10px; /* Внутренний отступ в ячейках таблицы */
+  text-align: center; /* Выравнивание текста в ячейках */
+  font-family: 'Montserrat';
+  font-size: 18px;
+  color: #100f0f;
+  border: 1px solid #000000;
+
+}
+.table_admin th{
+  text-align: left;
+  background-color: #0e0d0d;
+  padding: 10px; /* Внутренний отступ в ячейках таблицы */
+  text-align: center; /* Выравнивание текста в ячейках */
+  font-family: 'Montserrat';
+  font-size: 18px;
+  color: white;
+  border: 3px solid #000000;
+}
+
+.admin-button {
+  z-index: 10;
+  position: fixed;
+  bottom: 20px;
+  right: 20px; /* Расстояние от правого края */
+  padding: 10px 20px;
+  background-color: #000;
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  border: 1px solid #000;
+  border-radius: 10px; /* Закругленные углы */
+  transition: background-color 0.3s ease; /* Плавный переход цвета */
+}
+
+.custom-select {
+  text-align: center;
+  appearance: none; /* Убирает стандартный стиль */
+  background-color: #000000;
+  padding: 8px 12px; /* Внутренний отступ */
+  color: #ffffff; /* Цвет текста */
+  border-radius: 5px; /* Закругленные углы */
+  outline: none; /* Убирает стандартную рамку при фокусе */
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.2); /* Тень контейнера */
+  cursor: pointer; /* Изменяет указатель мыши */
+  width: 100%; /* Ширина 100% от родителя */
+  transition: all 0.3s ease; /* Анимация для плавности */
+  border: none;
+
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="white"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
+}
+
+.btn-primary_role{
+  z-index: 20;
+  /*position: absolute;*/
+  /*bottom: 20px;*/
+  margin-right: 10px;
+  padding: 10px 20px;
+  background-color: #000;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+  border: 1px solid #000;
+  border-radius: 10px; /* Закругленные углы */
+  transition: background-color 0.3s ease; /* Плавный переход цвета */
+
+}
+
+
+.btn-delete_user{
+  z-index: 20;
+  /*position: absolute;*/
+  /*bottom: 20px;*/
+  /*left: 20px;*/
+  padding: 10px 20px;
+  background-color: #000;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+  border: 1px solid #000;
+  border-radius: 10px; /* Закругленные углы */
+  transition: background-color 0.3s ease; /* Плавный переход цвета */
+}

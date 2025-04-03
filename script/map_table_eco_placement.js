@@ -1,5 +1,5 @@
 const map = new mapgl.Map('map_container', {
-  key: 'a81f138b-e3df-41a7-ac42-b11f85337293',
+  key: '00b2cd5e-b496-40fa-9ca6-a32f9b2300b5',
   center: [37.60141, 55.72844],
   zoom: 17,
   lang: 'ru'

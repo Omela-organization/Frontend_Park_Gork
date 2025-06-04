@@ -10,8 +10,11 @@
   <link rel="icon" href="./marker-icon-2x.png" type="image/x-icon" sizes="640x640" />
   <script src="https://mapgl.2gis.com/api/js/v1"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
+
 <body class="body">
+  <div id="header-placeholder"></div>
   <div class="container">
     <a class="button" href="reports.html">Анализ экообстановки</a>
     <div id="map_container" class="map_container"></div>
@@ -37,6 +40,12 @@
     </div>
   </div>
   <script class="map_container" src="./script/map_table_eco_placement.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(function () {
+      $("#header-placeholder").load("header.html");
+    });
+  </script>
 </body>
 
 </html>

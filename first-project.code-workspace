@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"name": "first-project",
+			"path": "C:/Users/User/dev/first-project"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Front_parki"
+	}
+}

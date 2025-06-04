@@ -5,11 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Пользователи</title>
     <link href="https://unpkg.com/tabulator-tables/dist/css/tabulator.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style/style.css">
     <link rel="icon" href="./marker-icon-2x.png" type="image/x-icon" sizes="640x640" />
     <script type="text/javascript" src="https://unpkg.com/tabulator-tables/dist/js/tabulator.min.js"></script>
     <link rel="stylesheet" href="./style/style_achiv_proba.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
+    <div id="header-placeholder"></div>
     <h1>Пользователи</h1>
 
     <div class="controls">
@@ -43,6 +46,11 @@
 
     <div id="example-table"></div>
 
+    <script>
+      $(function(){
+        $("#header-placeholder").load("header.html");
+      });
+    </script>
     <script src="./script/achivments_proba.js"></script>
 </body>
 </html>

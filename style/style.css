@@ -1,10 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap");
 
 .container{
-  width: 1000px;
+  width: 100%;
   margin: 0 auto;
-  padding: 20px;
-  background-color: #070707;
+  padding: 0px;
   border-radius: 15px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
@@ -417,26 +416,30 @@ td {
   margin-bottom: 20px;
 }
 
+/* Удаляем старые цвета для navbar, чтобы не перебивать новый header */
 .navbar-default {
-  background-color:  #376c6b !important;
-  border-color:  #0e4443 !important;
+  background-color: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
 }
 
 .navbar-default .navbar-brand,
 .navbar-default .navbar-nav > li > a {
-  color: #fff !important; /* Цвет текста ссылок */
+  color: inherit !important;
+  background: none !important;
 }
 
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-nav > li > a:hover {
-  color:  #042c2b !important; /* Цвет текста ссылок при наведении */
+  color: inherit !important;
+  background: none !important;
 }
 
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
-  color:  #0e4443 !important; /* Цвет текста активной ссылки */
-  background-color: #555 !important;
+  color: inherit !important;
+  background: none !important;
 }
 
 .container-fluid{
@@ -549,4 +552,32 @@ td {
   border: 1px solid #000;
   border-radius: 10px; /* Закругленные углы */
   transition: background-color 0.3s ease; /* Плавный переход цвета */
+}
+
+.styles_table {
+    width: 96%;
+    min-width: 900px;
+    max-width: 1600px;
+    border-collapse: collapse;
+    border: none;
+    margin: 0 auto 24px auto;
+    background: #fff;
+}
+.styles_table th, .styles_table td {
+    border: 1px solid #7ed957;
+    /* ...existing code... */
+}
+
+/* Растянуть карту под таблицу */
+#map_container.map_container {
+    width: 96%;
+    min-width: 900px;
+    max-width: 1600px;
+    height: 400px;
+    margin: 0 auto 24px auto;
+    border: 2px solid #7ed957;
+    border-radius: 8px;
+    box-sizing: border-box;
+    background: #fff;
+    /* ...existing code... */
 }

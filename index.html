@@ -10,18 +10,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body class="body">
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand active" href="#">Админимтративная проблема</a>
-            </div>
-            <ul class="nav navbar-nav">
-                <li><a href="./map_table.html" target="_blank">Анализ экопроблем</a></li>
-                <li><a href="./map_table_eco_placement.html" target="_blank">Анализ экообстановки</a></li>
-                <li><a href="./achivments_proba.html" target="_blank">Пользователи</a></li>
-            </ul>
-        </div>
-    </nav>
+    <div id="header-placeholder"></div>
 
     <h1 class="admin_h1_panel">Административная панель</h1>
 
@@ -45,6 +34,11 @@
         </table>
     </div>
     <!-- <button onclick="window.location.href='/'" class="admin-button">Выход</button> -->
+    <script>
+      $(function(){
+        $("#header-placeholder").load("header.html");
+      });
+    </script>
     <script src="./script/admin.js"></script>
 </body>
 </html>

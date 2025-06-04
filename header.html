@@ -1,0 +1,66 @@
+<nav class="navbar navbar-default custom-navbar">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav" id="main-nav">
+            <li><a href="./index.html" id="nav-admin">Административная панель</a></li>
+            <li><a href="./map_table.html" id="nav-map-table">Анализ экопроблем</a></li>
+            <li><a href="./achivments_proba.html" id="nav-users">Пользователи</a></li>
+        </ul>
+    </div>
+</nav>
+<style>
+.custom-navbar {
+    margin-bottom: 30px;
+    margin-top: 0 !important;
+    border-radius: 8px;
+    background: #376c6b;
+    border: 2px solid #0e4443;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    padding-top: 0 !important;
+}
+body {
+    margin-top: 0 !important;
+    /* ...existing code... */
+}
+.navbar-nav {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.navbar-nav > li {
+    float: none;
+    display: inline-block;
+}
+.navbar-nav > li > a {
+    font-size: 16px;
+    color: #fff !important;
+    padding: 12px 18px;
+    border-radius: 6px;
+    transition: background 0.2s, color 0.2s;
+    font-weight: normal;
+    letter-spacing: 1px;
+}
+.navbar-nav > li > a:hover,
+.navbar-nav > li.active > a {
+    background: #0e4443 !important;
+    color: #fff !important;
+}
+.navbar-nav > li.active > a {
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+</style>
+<script>
+  // Подсветка активной ссылки по url
+  (function() {
+    var path = window.location.pathname;
+    if (path.endsWith('index.html') || path.endsWith('/') || path === '') {
+      document.getElementById('nav-admin').parentElement.classList.add('active');
+    } else if (path.endsWith('map_table.html')) {
+      document.getElementById('nav-map-table').parentElement.classList.add('active');
+    } else if (path.endsWith('map_table_eco_placement.html')) {
+      document.getElementById('nav-map-eco').parentElement.classList.add('active');
+    } else if (path.endsWith('achivments_proba.html')) {
+      document.getElementById('nav-users').parentElement.classList.add('active');
+    }
+  })();
+</script>

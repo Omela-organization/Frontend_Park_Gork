@@ -448,7 +448,7 @@ td {
 }
 
 .table-container {
-  width: 80%;
+  width: 95%;
   /*margin-left: 25%;*/
   margin: 30px auto; /* Отступ сверху */
   /*padding: 10px; !* Внутренний отступ *!*/
@@ -527,7 +527,8 @@ td {
   /*position: absolute;*/
   /*bottom: 20px;*/
   margin-right: 10px;
-  padding: 10px 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   background-color: #000;
   color: white;
   text-decoration: none;
@@ -544,7 +545,7 @@ td {
   /*position: absolute;*/
   /*bottom: 20px;*/
   /*left: 20px;*/
-  padding: 10px 20px;
+  padding: 10px 0px;
   background-color: #000;
   color: white;
   text-decoration: none;

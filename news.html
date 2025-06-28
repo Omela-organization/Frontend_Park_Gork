@@ -1,0 +1,48 @@
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Редактирование новостей</title>
+  <link rel="stylesheet" href="news.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./style/style_news.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body class="body">
+  <div class="container">
+    <div class="header">
+      <h1>Новости</h1>
+      <button id="openModal" class="add-btn">Добавить новость</button>
+    </div>
+
+    <div id="newsGrid" class="news-grid">
+      <!-- Новости появятся здесь -->
+    </div>
+  </div>
+
+  <!-- Модальное окно -->
+  <div id="newsModal" class="modal">
+    <div class="modal-content">
+      <button id="closeModal" class="close">&times;</button>
+      <h2 id="modalTitle">Новая новость</h2>
+      <form id="newsForm">
+        <label>Заголовок</label>
+        <input type="text" name="title" required>
+
+        <label>Дата публикации</label>
+        <input type="date" name="date" required>
+
+        <label>Текст</label>
+        <textarea name="text" rows="4" required></textarea>
+
+        <label>Фото</label>
+        <input type="file" name="image" accept="image/*">
+
+        <button type="submit">Сохранить</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="./script/news.js"></script>
+</body>
+</html>

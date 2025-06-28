@@ -1,0 +1,230 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+}
+
+.body {
+  background: linear-gradient(180deg, #5dc4c1, #90fcae);
+  height: auto; /* Высота экрана */
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  margin: 0;
+  overflow-y: auto;
+}
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+h1 {
+  color: #333;
+  margin: 0;
+}
+
+/* Кнопка "Добавить новость" */
+#openModal {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4285f4;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#openModal:hover {
+  background-color: #357ae8;
+}
+
+/* Сетка новостей 3 в ряд */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* Карточка новости */
+.news-card {
+  background-color: #f0f4f8;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 380px;
+  box-sizing: border-box;
+}
+
+.news-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.news-card h3 {
+  margin: 0 0 5px 0;
+  color: #222;
+}
+
+.news-date {
+  font-size: 0.85em;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.news-text {
+  flex-grow: 1;
+  font-size: 0.95em;
+  color: #333;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+
+/* Контейнер кнопок */
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.buttons button {
+  flex: 1;
+  padding: 8px;
+  font-size: 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.buttons .read-more {
+  background-color: #4285f4;
+  color: white;
+}
+
+.buttons .read-more:hover {
+  background-color: #4285f4;
+}
+
+.buttons .edit-news {
+  background-color: #4285f4;
+  color: white;
+}
+
+.buttons .edit-news:hover {
+  background-color: #4285f4;
+}
+
+/* Модальное окно */
+.modal {
+  display: none; /* скрыто по умолчанию */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.5);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Контент модального окна */
+.modal-content {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 25px 30px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 0 20px rgba(0,0,0,0.25);
+  position: relative;
+}
+
+/* Заголовок формы */
+.modal-content h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #333;
+  text-align: center;
+}
+
+/* Форма внутри модального окна */
+.modal-content form label {
+  display: block;
+  text-align: left;
+  margin: 12px 0 6px;
+  font-weight: bold;
+  color: #444;
+}
+
+.modal-content form input[type="text"],
+.modal-content form input[type="date"],
+.modal-content form textarea,
+.modal-content form input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+.modal-content form textarea {
+  height: 100px;
+}
+
+.modal-content form button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  background-color: #4285f4;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.modal-content form button:hover {
+  background-color: #357ae8;
+}
+
+/* Кнопка закрытия модального окна */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  font-weight: bold;
+  color: #888;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close:hover {
+  color: #333;
+}

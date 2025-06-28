@@ -14,8 +14,7 @@ const roleIdToLabel = {
 };
 
 // Токен авторизации (временно захардкожен, позже можешь хранить в localStorage)
-const token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJ1c2VyX2lkIjoiZDM2MzY2ZjYtMjZhNy00Y2JiLThhODAtOWJkZTE5NjFkZjk0Iiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ5NTAwOTM3LCJleHAiOjE3NDk1MDQ1Mzd9.rwV53w8bki8lrczRKZVNg01NO6vQsnDhWkBAk561xrE";
-
+const token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJ1c2VyX2lkIjoiZDM2MzY2ZjYtMjZhNy00Y2JiLThhODAtOWJkZTE5NjFkZjk0Iiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzUwMjcxNjgwLCJleHAiOjE3NTAyNzUyODB9.iOg84Nmb0rSasLFCTZmV4AFDb-u4eZjPiErIP1qNqpA"
 document.addEventListener("DOMContentLoaded", loadUsers);
 
 async function loadUsers() {
@@ -23,7 +22,7 @@ async function loadUsers() {
     const res = await fetch("http://213.171.28.81:7000/api/v1/profiles/", {
       method: "GET",
       headers: {
-        "Authorization": token,
+        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJ1c2VyX2lkIjoiZDM2MzY2ZjYtMjZhNy00Y2JiLThhODAtOWJkZTE5NjFkZjk0Iiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzUwMjcxNjgwLCJleHAiOjE3NTAyNzUyODB9.iOg84Nmb0rSasLFCTZmV4AFDb-u4eZjPiErIP1qNqpA",
         "Content-Type": "application/json"
       }
     });

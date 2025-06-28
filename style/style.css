@@ -582,3 +582,64 @@ td {
     background: #fff;
     /* ...existing code... */
 }
+
+.container_wiki {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+}
+
+.form-wiki label {
+  display: block;
+  margin: 15px 0 5px;
+  color: #444;
+  font-weight: bold;
+}
+
+.form-wiki input[type="text"],
+.form-wiki input[type="date"],
+.form-wiki textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.button-wiki {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4285f4;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.button-wiki:hover {
+  background-color: #357ae8;
+}
+
+
+.wiki-articles {
+  margin-top: 40px;
+  border-top: 1px solid #ccc;
+  padding-top: 20px;
+}
+.wiki-articles .article {
+  border: 1px solid #e0e0e0;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  background-color: #fefefe;
+}
+.wiki-articles .article img {
+  max-width: 100%;
+  margin-top: 10px;
+  border-radius: 8px;
+}

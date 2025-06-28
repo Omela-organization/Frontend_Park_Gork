@@ -1,0 +1,66 @@
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Заполнение Вики</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./style/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body class="body">
+  <div class="container_wiki">
+    <h1>Добавить статью в Вики</h1>
+    <form class="form-wiki" id="wikiForm">
+      <label>Заголовок
+        <input type="text" name="title" required>
+      </label>
+      <label>Категория
+        <input type="text" name="category" required>
+      </label>
+      <label>Содержание
+        <textarea name="content" rows="8" required></textarea>
+      </label>
+      <label>Прикрепить фото
+        <input type="file" name="image" accept="image/*">
+      </label>
+      <button class="button-wiki" type="submit">Сохранить</button>
+    </form>
+
+    <div class="wiki-articles">
+      <h2>Существующие статьи</h2>
+      <div id="articles-list"></div>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('wikiForm');
+    const articlesList = document.getElementById('articles-list');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const title = form.title.value;
+      const category = form.category.value;
+      const content = form.content.value;
+      const imageFile = form.image.files[0];
+
+      const article = document.createElement('div');
+      article.classList.add('card');
+      article.innerHTML = `<h3>${title}</h3><small><em>${category}</em></small><p>${content}</p>`;
+
+      if (imageFile) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const img = document.createElement('img');
+          img.src = e.target.result;
+          img.alt = 'Изображение статьи';
+          img.style.maxWidth = '50%';
+          article.prepend(img);
+        };
+        reader.readAsDataURL(imageFile);
+      }
+
+      articlesList.prepend(article);
+      form.reset();
+    });
+  </script>
+</body>
+</html>

@@ -5,8 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="./style/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body class="body">
+  <div id="header-placeholder"></div>
   <div class="container_wiki">
     <h1>Добавить статью в Вики</h1>
     <form class="form-wiki" id="wikiForm">
@@ -30,8 +32,10 @@
       <div id="articles-list"></div>
     </div>
   </div>
-
   <script>
+      $(function(){
+        $("#header-placeholder").load("header.html");
+      });
     const form = document.getElementById('wikiForm');
     const articlesList = document.getElementById('articles-list');
 

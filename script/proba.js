@@ -17,6 +17,134 @@ function addMarker(coordinates) {
   map.setCenter(coordinates);
 }
 
+async function fetchData() {
+  try {
+    // --- Загрузка с сервера, как в map_table_eco_placement.js ---
+    const response = await fetch("http://213.171.28.81:7001/api/v1/eco_problems/", {
+      method: "GET",
+      headers: {
+        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJ1c2VyX2lkIjoiZDM2MzY2ZjYtMjZhNy00Y2JiLThhODAtOWJkZTE5NjFkZjk0Iiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ2NTQ3MTUxLCJleHAiOjE3NDY1NTA3NTF9.ZHW9k-kkGj-WBPOxaNIZCSx1_H20qxbP66MrYoswVB4", // замените на актуальный
+        "Content-Type": "application/json"
+      }
+    });
+
+    if (!response.ok) {
+      const text = await response.text();
+      throw new Error(`Ошибка HTTP ${response.status}: ${text}`);
+    }
+
+    const data = await response.json();
+
+    if (!Array.isArray(data)) {
+      console.error('Ожидался массив, но получено:', data);
+      return;
+    }
+
+    const tableBody = document.getElementById('table_body');
+    tableBody.innerHTML = '';
+
+    // Маппинг для статусов и типов (можно расширить)
+    const statusMap = {
+      1: 'Не начато',
+      2: 'В работе',
+      5: 'Завершено'
+    };
+
+    const typeMap = {
+      1: 'Тип 1',
+      2: 'Тип 2'
+    };
+
+    data.forEach((item) => {
+      const row = document.createElement('tr');
+
+      // Для совместимости с map_table.html: заполняем все столбцы, даже если данных нет
+      row.innerHTML = `
+        <td>—</td>
+        <td>${typeMap[item.type_incident_id] || '—'}</td>
+        <td class="copy-coords" data-coords="${item.latitude || '0'},${item.longitude || '0'}">
+          ${item.latitude || '—'},${item.longitude || '—'}
+        </td>
+        <td>—</td>
+        <td class="status-cell" style="cursor:pointer;color:#337ab7;text-decoration:underline;">
+          ${statusMap[item.status_id] || '—'}
+        </td>
+        <td><a href="#" class="show-map" data-coords="${item.latitude || '0'},${item.longitude || '0'}">Показать</a></td>
+        <td class="viewed-cell">не просмотрено</td>
+        <td class="status-file-cell"></td>
+      `;
+
+      tableBody.appendChild(row);
+    });
+
+    // Модальное окно для фото
+    if (!document.getElementById('photo-modal')) {
+      const modal = document.createElement('div');
+      modal.id = 'photo-modal';
+      modal.style = `
+        display:none;position:fixed;z-index:9999;left:0;top:0;width:100vw;height:100vh;
+        background:rgba(0,0,0,0.7);justify-content:center;align-items:center;
+      `;
+      modal.innerHTML = `
+        <div id="photo-modal-content" style="position:relative;max-width:90vw;max-height:90vh;">
+          <span id="photo-modal-close" style="position:absolute;top:10px;right:20px;font-size:32px;color:#fff;cursor:pointer;z-index:2;">&times;</span>
+          <img id="photo-modal-img" src="" alt="Фото" style="max-width:90vw;max-height:80vh;display:block;margin:auto;border-radius:8px;box-shadow:0 2px 16px #000;">
+        </div>
+      `;
+      document.body.appendChild(modal);
+
+      document.getElementById('photo-modal-close').onclick = function() {
+        modal.style.display = 'none';
+      };
+      modal.onclick = function(e) {
+        if (e.target === modal) modal.style.display = 'none';
+      };
+    }
+
+    document.querySelectorAll('.photo-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const modal = document.getElementById('photo-modal');
+        const img = document.getElementById('photo-modal-img');
+        img.src = this.getAttribute('data-photo');
+        modal.style.display = 'flex';
+      });
+    });
+
+    document.querySelectorAll('.status-cell').forEach(cell => {
+      cell.addEventListener('click', function() {
+        const row = this.closest('tr');
+        const currentStatus = this.textContent.trim();
+        const currentFileUrl = row.querySelector('.status-file-cell a') ? row.querySelector('.status-file-cell a').href : "";
+        openStatusModal(row, currentStatus, currentFileUrl);
+      });
+    });
+
+    document.querySelectorAll('.show-map').forEach(element => {
+      element.addEventListener('click', function(event) {
+        event.preventDefault();
+        const coords = this.getAttribute('data-coords').split(',').map(Number);
+        addMarker(coords);
+      });
+    });
+
+    document.querySelectorAll('.copy-coords').forEach(button => {
+      button.addEventListener('click', () => {
+        navigator.clipboard.writeText(button.dataset.coords)
+          .then(() => {
+            alert('Координаты скопированы!');
+          })
+          .catch(err => {
+            console.error('Ошибка копирования:', err);
+          });
+      });
+    });
+
+  } catch (error) {
+    console.error('Ошибка при загрузке данных:', error);
+  }
+}
+
 function createStatusModal() {
   if (document.getElementById('status-modal')) return;
 
@@ -102,106 +230,6 @@ function openStatusModal(row, currentStatus, currentFileUrl) {
       fileInfo.textContent = "";
     }
   };
-}
-
-async function fetchData() {
-  try {
-    const response = await fetch("reports.json");
-    const data = await response.json();
-
-    const tableBody = document.getElementById('table_body');
-    tableBody.innerHTML = '';
-
-    data.forEach((item) => {
-      const row = document.createElement('tr');
-
-      const viewed = item.viewed === true || item.viewed === "просмотрено" ? "просмотрено" : "не просмотрено";
-      // Статус всегда "создано" по умолчанию
-      const status = "создано";
-      // Для файла отчета
-      const statusFile = "";
-
-      row.innerHTML = `
-        <td>${item.date}</td>
-        <td>${item.violationType}</td>
-        <td class="copy-coords" data-coords="${item.coordinates}">${item.coordinates}</td>
-        <td><a href="${item.photo}" class="photo-link" data-photo="${item.photo}">Фото</a></td>
-        <td class="status-cell" style="cursor:pointer;color:#337ab7;text-decoration:underline;">${status}</td>
-        <td><a href="#" class="show-map" data-coords="${item.coordinates}">Показать</a></td>
-        <td class="viewed-cell">${viewed}</td>
-        <td class="status-file-cell"></td>
-      `;
-
-      tableBody.appendChild(row);
-    });
-
-    // Модальное окно для фото
-    if (!document.getElementById('photo-modal')) {
-      const modal = document.createElement('div');
-      modal.id = 'photo-modal';
-      modal.style = `
-        display:none;position:fixed;z-index:9999;left:0;top:0;width:100vw;height:100vh;
-        background:rgba(0,0,0,0.7);justify-content:center;align-items:center;
-      `;
-      modal.innerHTML = `
-        <div id="photo-modal-content" style="position:relative;max-width:90vw;max-height:90vh;">
-          <span id="photo-modal-close" style="position:absolute;top:10px;right:20px;font-size:32px;color:#fff;cursor:pointer;z-index:2;">&times;</span>
-          <img id="photo-modal-img" src="" alt="Фото" style="max-width:90vw;max-height:80vh;display:block;margin:auto;border-radius:8px;box-shadow:0 2px 16px #000;">
-        </div>
-      `;
-      document.body.appendChild(modal);
-
-      document.getElementById('photo-modal-close').onclick = function() {
-        modal.style.display = 'none';
-      };
-      modal.onclick = function(e) {
-        if (e.target === modal) modal.style.display = 'none';
-      };
-    }
-
-    document.querySelectorAll('.photo-link').forEach(link => {
-      link.addEventListener('click', function(e) {
-        e.preventDefault();
-        const modal = document.getElementById('photo-modal');
-        const img = document.getElementById('photo-modal-img');
-        img.src = this.getAttribute('data-photo');
-        modal.style.display = 'flex';
-      });
-    });
-
-    // Модальное окно для изменения статуса
-    document.querySelectorAll('.status-cell').forEach(cell => {
-      cell.addEventListener('click', function() {
-        const row = this.closest('tr');
-        const currentStatus = this.textContent.trim();
-        const currentFileUrl = row.querySelector('.status-file-cell a') ? row.querySelector('.status-file-cell a').href : "";
-        openStatusModal(row, currentStatus, currentFileUrl);
-      });
-    });
-
-    document.querySelectorAll('.show-map').forEach(element => {
-      element.addEventListener('click', function(event) {
-        event.preventDefault();
-        const coords = this.getAttribute('data-coords').split(',').map(Number);
-        addMarker(coords);
-      });
-    });
-
-    document.querySelectorAll('.copy-coords').forEach(button => {
-      button.addEventListener('click', () => {
-        navigator.clipboard.writeText(button.dataset.coords)
-          .then(() => {
-            alert('Координаты скопированы!');
-          })
-          .catch(err => {
-            console.error('Ошибка копирования:', err);
-          });
-      });
-    });
-
-  } catch (error) {
-    console.error('Ошибка при загрузке данных:', error);
-  }
 }
 
 async function updateStatus(id, newStatus) {

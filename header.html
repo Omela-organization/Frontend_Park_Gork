@@ -4,6 +4,8 @@
             <li><a href="./index.html" id="nav-admin">Административная панель</a></li>
             <li><a href="./map_table.html" id="nav-map-table">Анализ экопроблем</a></li>
             <li><a href="./achivments_proba.html" id="nav-users">Пользователи</a></li>
+            <li><a href="./news.html" id="nav-news">Редактирование новостной ленты</a></li>
+            <li><a href="./wiki.html" id="nav-wiki">Заполнение Wiki</a></li>
         </ul>
     </div>
 </nav>
@@ -61,6 +63,12 @@ body {
       document.getElementById('nav-map-eco').parentElement.classList.add('active');
     } else if (path.endsWith('achivments_proba.html')) {
       document.getElementById('nav-users').parentElement.classList.add('active');
+    }
+    else if (path.endsWith('news.html')) {
+      document.getElementById('nav-news').parentElement.classList.add('active');
+    }
+    else if (path.endsWith('wiki.html')) {
+      document.getElementById('nav-wiki').parentElement.classList.add('active');
     }
   })();
 </script>

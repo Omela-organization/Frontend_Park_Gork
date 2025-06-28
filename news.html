@@ -5,12 +5,14 @@
   <link rel="stylesheet" href="news.css">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="./style/style_news.css">
+  <link rel="stylesheet" href="./style/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body class="body">
+  <div id="header-placeholder"></div>
   <div class="container">
-    <div class="header">
+    <div class="header_news">
       <h1>Новости</h1>
       <button id="openModal" class="add-btn">Добавить новость</button>
     </div>
@@ -42,7 +44,11 @@
       </form>
     </div>
   </div>
-
+      <script>
+      $(function(){
+        $("#header-placeholder").load("header.html");
+      });
+    </script>
   <script src="./script/news.js"></script>
 </body>
 </html>
